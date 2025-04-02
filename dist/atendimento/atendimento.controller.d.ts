@@ -1,0 +1,30 @@
+import { AtendimentoAddDTO, AtendimentoDoneDTO, AtendimentoAdminDTO, AtendimentoUpdateDTO, AtendimentoStopStartDTO, AtendimentoChangeMotivoDTO, OrigemAddDTO, OrigemUpdateDTO, MotivoAddDTO, MotivoUpdateDTO } from './atendimento.dto';
+import { AtendimentoService } from './atendimento.service';
+import { OrigemService } from './origem.service';
+import { OrigemEntity } from './origem.entity';
+import { MotivoEntity } from './motivo.entity';
+import { MotivoService } from './motivo.service';
+export declare class AtendimentoController {
+    private origemService;
+    private atendimentoService;
+    private motivoService;
+    constructor(origemService: OrigemService, atendimentoService: AtendimentoService, motivoService: MotivoService);
+    refreshState(req: any): any;
+    add(req: any, data: AtendimentoAddDTO): Promise<import("./atendimento.entity").AtendimentoEntity>;
+    stopStart(req: any, data: AtendimentoStopStartDTO): Promise<void>;
+    getOnline(req: any): Promise<import("./atendimento.entity").AtendimentoEntity[]>;
+    all(req: any): Promise<import("./atendimento.entity").AtendimentoEntity[]>;
+    done(req: any, data: AtendimentoDoneDTO): Promise<void>;
+    allAdmin(req: any, data: AtendimentoAdminDTO): Promise<import("./atendimento.entity").AtendimentoEntity[]>;
+    update(req: any, data: AtendimentoUpdateDTO): Promise<void>;
+    changeMotivo(req: any, data: AtendimentoChangeMotivoDTO): Promise<void>;
+    destroy(cd: number): void;
+    origemAdd(data: OrigemAddDTO): Promise<void>;
+    origemAll(): Promise<OrigemEntity[]>;
+    origemUpdate(data: OrigemUpdateDTO[]): Promise<void>;
+    origemDelete(cd: number): Promise<void>;
+    motivoAdd(data: MotivoAddDTO[]): Promise<void>;
+    motivoDelete(cd: number): Promise<void>;
+    motivoUpdate(data: MotivoUpdateDTO[]): Promise<void>;
+    motivoAll(): Promise<MotivoEntity[]>;
+}

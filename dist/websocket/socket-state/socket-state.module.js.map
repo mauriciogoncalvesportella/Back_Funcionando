@@ -1,0 +1,1 @@
+{"version":3,"file":"socket-state.module.js","sourceRoot":"","sources":["../../../src/websocket/socket-state/socket-state.module.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAAwC;AACxC,iEAA4D;AAMrD,IAAM,iBAAiB,GAAvB,MAAM,iBAAiB;CAAG,CAAA;AAApB,iBAAiB;IAJ7B,IAAA,eAAM,EAAC;QACN,SAAS,EAAE,CAAC,yCAAkB,CAAC;QAC/B,OAAO,EAAE,CAAC,yCAAkB,CAAC;KAC9B,CAAC;GACW,iBAAiB,CAAG;AAApB,8CAAiB"}

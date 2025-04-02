@@ -1,0 +1,31 @@
+import { Timestamp } from "typeorm";
+import { AtendimentoEntity } from "src/atendimento/atendimento.entity";
+import { TableEntity } from "src/table/table.entity";
+import { TicketEntity } from "src/ticket/ticket.entity";
+import { Turno } from "./user.dto";
+import { ServicoEntity } from "src/ticket/servico.entity";
+import { AcaoEntity } from "src/ticket/acao.entity";
+import { EventoEntity } from "src/agenda/evento.entity";
+import { ChaveEntity } from "src/chave/chave.entity";
+export declare class UserEntity {
+    constructor(cd: number);
+    cd: number;
+    idRamal: string;
+    dtcriacao: Timestamp;
+    idlogin: string;
+    idnome: string;
+    idemail: string;
+    jsturnos: Array<Turno>;
+    idsenha: string;
+    idcolor: string;
+    chaves: ChaveEntity[];
+    grupoacesso: number;
+    servicos: ServicoEntity[];
+    atendimentos: AtendimentoEntity[];
+    tables: TableEntity[];
+    acoes: AcaoEntity[];
+    tickets: TicketEntity[];
+    eventos: EventoEntity[];
+    hashSenha(): Promise<string>;
+    comparePassword(attempt: string): Promise<boolean>;
+}

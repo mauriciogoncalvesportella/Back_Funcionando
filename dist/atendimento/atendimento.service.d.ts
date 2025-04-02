@@ -1,0 +1,30 @@
+import { AtendimentoEntity } from './atendimento.entity';
+import { Repository, EntityManager, Connection } from 'typeorm';
+import { AtendimentoAddDTO, AtendimentoUpdateDTO, AtendimentoStopStartDTO, AtendimentoChangeMotivoDTO } from './atendimento.dto';
+import { ChaveEntity } from 'src/chave/chave.entity';
+import { MotivoEntity } from './motivo.entity';
+import { OrigemEntity } from './origem.entity';
+import { FilaEsperaEntity } from 'src/fila-espera/fila-espera.entity';
+import { FilaEsperaService } from 'src/fila-espera/fila-espera.service';
+import { WebsocketGateway } from 'src/websocket/websocket.gateway';
+export declare class AtendimentoService {
+    private atendimentoRepository;
+    private motivoRepository;
+    private chaveRepository;
+    private origemRepository;
+    private filaEsperaRepository;
+    private readonly connection;
+    private readonly filaEsperaService;
+    private readonly websocketGateway;
+    constructor(atendimentoRepository: Repository<AtendimentoEntity>, motivoRepository: Repository<MotivoEntity>, chaveRepository: Repository<ChaveEntity>, origemRepository: Repository<OrigemEntity>, filaEsperaRepository: Repository<FilaEsperaEntity>, connection: Connection, filaEsperaService: FilaEsperaService, websocketGateway: WebsocketGateway);
+    RefreshState(): Promise<void>;
+    add(data: AtendimentoAddDTO, user: any): Promise<AtendimentoEntity>;
+    getOnline(manager?: EntityManager): Promise<AtendimentoEntity[]>;
+    stopStart(data: AtendimentoStopStartDTO, user: any, manager?: EntityManager): Promise<void>;
+    all(user: any): Promise<AtendimentoEntity[]>;
+    allAdmin(data: any, user: any): Promise<AtendimentoEntity[]>;
+    update(data: AtendimentoUpdateDTO): Promise<void>;
+    changeMotivo(data: AtendimentoChangeMotivoDTO, user: any, manager?: EntityManager): Promise<void>;
+    done(data: any, user: any, manager?: EntityManager): Promise<void>;
+    destroy(cd: number): Promise<void>;
+}
